@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= pageTitle %></title>
+    <link rel="icon" type="image/png" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/css/login.css">
+    <!-- <% if(pageTitle === 'Sign Up') { %> 
+        <style>
+            .login_div {
+                padding-top: 400px;
+                overflow: scroll;
+            }
+        </style>
+    <% } %> -->
+
+</head>
+<body>
+    <main>
+        <div class="login_img">
+            <img src="/images/login-img.svg">
+        </div>
+        <div class="login_div" >
+            <div class="login_form">
+                <form action="<% if(pageTitle === 'Sign Up') { %>/signup
+                    <% } else if(pageTitle === 'Log In') { %>/login
+                    <% } else { %>/r-signup<% } %>"
+                 method="POST">
+                    <h1>Welcome!</h1>
+                    <label for="email_add">Email Address</label><br>
+                    <% if(email) { %>
+                        <h5 style="color: darkred; padding:0; margin: 0;">Email Id not Found!</h5>
+                    <% } %>
+                    <input type="text" id="email" name="email"><br>
+                    <label for="password">Password</label><br>
+                    <% if(pw) { %>
+                        <h5 style="color: darkred; padding:0; margin: 0;">Password not Found!</h5>
+                    <% } %>
+                    <input type="text" id="password" name="password"><br>
+                    <% if (pageTitle === 'Sign Up') { %>
+                        <label for="username">Username</label><br>
+                        <input type="text" id="username" name="username"><br>
+                        <!-- <label for="profile_type">Profile Type</label><br>
+                        <input type="text" id="profile" name="profile_type"><br>
+                        <label for="experience_level">Experience Level</label><br>
+                        <input type="text" id="experience_level" name="experience_level"><br>
+                        <label for="hours">Hours</label><br>
+                        <input type="number" id="hours" name="hours"><br>
+                        <label for="location">Location</label><br>
+                        <input type="text" id="location" name="location"><br> -->    
+                    <% } %>
+                    <input class="submit-button" type="submit" value="<% if(pageTitle === 'Sign Up') { %>Sign Up <% } else { %> Log In <% } %>">
+
+                    <% if (pageTitle === 'Sign Up') { %>
+                        <h5>Already have an account? <a href="/">Log In</a></h5>
+                    <% } else if(pageTitle === 'Log In') { %>
+                        <h5>Don't have an account? <a href="/signup">Sign Up</a></h5>
+                    <% } %>
+                    <% if (pageTitle !== 'Recruiter Sign Up') { %>
+                        <h5>Sign Up as <a href="/r-signup">Recruiter</a></h5>
+                    <% } else { %>
+                        <h5>Sign In as <a href="/">Job Seeker</a></h5>
+                    <% } %>
+                </form>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
