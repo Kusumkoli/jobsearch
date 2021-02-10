@@ -10,47 +10,44 @@
                 <% if(jobs.length>0) { %>
                     <% for(let job of jobs) { %>
                         <div class="card">
-                            <div class="profile_pic">
-                                <div class="profile_circle" style="align-self: start;"><i class="far fa-user"></i></div>
-                                <div>
-                                    <p style="font-size: 20px; color: #407aff; margin: 0px 0px 20px 0px"><%= job.title %></p>
-                                    <p style="font-size: 17px; margin: 1px 0px 0px 5px;"><i class="fas fa-building" style="font-size:15px; padding: 0px 2px"></i><%= job.company_name %>,<%= job.department %>
-                                        <i class="fas fa-map-marker-alt" style="font-size:15px; padding: 0px 2px"></i><%= job.location %></p>
+                            <div style="color: black;
+                            font-size: 20px; font-weight: bolder;"> <%= job.job_title %></div>   
+                            <div style="font-size: 16px;"> <%= job.company_name %></div>
+                            <div style="margin-top: 10px"><i class="fas fa-map-marker-alt" style="font-size:13px; padding: 0px 2px; margin-right:5px"></i><%= job.location %></div>
+                            <div class="card_conditions"> 
+                                <div class="subcard_conditions">
+                                    <div style="color:  "><i class="fas fa-rupee-sign" style="font-size:14px; padding: 0px 5px 0px 0px;"></i>Expected Salary</div>
+                                    <div><%=job.min_salary %> - <%=job.max_salary %> lpa</div>
                                 </div>
-                            </div>
-                            <div class="job_details">
-                                <div class="job_detail_div">  
-                                    <div><i class="fas fa-address-card"></i><%= job.job_id %></div>
-                                    <div><i class="fas fa-briefcase"></i><%= job.experience_level %></div>
-                                    <div><i class="fas fa-briefcase"></i><%= job.type %></div>
+                                <div class="subcard_conditions">
+                                    <div><i class="far fa-clock" style="font-size:14px; padding: 0px 5px 0px 0px;"></i>Apply By</div>
+                                    <div><%=job.apply_before %></div>
                                 </div>
-                                <div class="job_detail_div">
-                                    <div><i class="fas fa-address-card"></i><%= job.vacancies %></div>
-                                    <div><i class="fas fa-address-card"></i><%= job.salary %></div>
-                                </div>
-                            </div>
-                            <button class="modal-btn">Assign Recruiters</button>
-                            
-                            <div class="modal">
-                                <div class="modal-content">
-                                    <span class="close-btn">&times;</span>
-                                    <p><%= job.title %></p>
-                                    <p><%= job.job_id %> </p>
-                                    <% if(recruiters.length>0) { %> 
-                                        <form action="/amdashboard" method="POST">
-                                            <label for="recruiters">Recruiters:</label>
-                                                <select id="recruiters" name="assigned_recruiter">
-                                                    <% for(let recruiter of recruiters) { %>
-                                                        <option value="<%= recruiter._id %>"><%= recruiter.name %> (<%= recruiter._id %>)</option>
-                                                    <% } %>
-                                                </select>
-                                            <input type="submit" value="Assign" class="modal-btn">
-                                        </form>
-                                    <% } else { %>
-                                        <p>No Jobs Found!</p>
-                                    <% } %>    
-                                </div>
-                            </div>
+                                <div class="subcard_conditions">
+                                    <div><i class="far fa-moon  " style="font-size:14px; padding: 0px 5px 0px 0px;"></i>Number of Openings</div>
+                                    <div><%=job.num_of_openings %></div>
+                                </div>                                
+                            </div> 
+                            <div class="card_optional">
+                                <% if(job.wfh) { %> 
+                                    <div class="subcard_optional">Work from home</div>
+                                <% } %>
+                                <% if(job.parttime) { %> 
+                                    <div class="subcard_optional">Part Time</div>
+                                <% } %>
+                                <% if(job.internship) { %> 
+                                    <div class="subcard_optional">Internship</div>
+                                <% } %>
+                            </div> 
+                            <div class="card_optional2">
+                                <% if(job.womenrestart) { %> 
+                                    <div class="subcard_optional2"><i class="fas fa-check" style="font-size:13px; padding: 0px 5px 0px 0px;"></i>Women wanting to (re)start their career</div>
+                                <% } %>
+                                <% if(job.lostjob) { %> 
+                                    <div class="subcard_optional2"><i class="fas fa-check" style="font-size:13px; padding: 0px 5px 0px 0px;"></i>Seeking people who lost job due to pandemic</div>
+                                <% } %>
+                            </div>      
+                            <a href="/jobs/<%= job._id %>" class="details">View Details </a>                  
                         </div>
                     <% } %>
                 <% } else { %>

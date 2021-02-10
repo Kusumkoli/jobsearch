@@ -6,6 +6,7 @@ const path = require('path');
 
 //routes
 const loginRoutes = require('./routes/login');
+const jobRoutes = require('./routes/job');
 
 const app = express();
 
@@ -14,6 +15,7 @@ app.set('views', 'views');
 app.use(express.static(__dirname + '/public'));
 
 app.use(loginRoutes);
+app.use(jobRoutes);
 
 const PORT = process.env.PORT || 2010;
 

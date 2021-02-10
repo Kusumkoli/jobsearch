@@ -10,13 +10,14 @@ const jobSchema = new Schema({
         type: String,
         required: true
     },
-    company_website: {
-        type: String
-    },
     location: {
         type: String,
         required: true
     },
+
+    min_salary: Number,
+    max_salary: Number,
+
     apply_before: {
         type: String,
         required: true
@@ -47,7 +48,7 @@ const jobSchema = new Schema({
     wfh: {
         type: Boolean
     },
-    // jobs for women willing to (re)start their career
+    // jobs for women wanting to (re)start their career
     womenrestart: {
         type: Boolean
     },

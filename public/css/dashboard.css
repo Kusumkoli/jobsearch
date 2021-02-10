@@ -79,25 +79,26 @@ main {
     display: flex;
     flex-direction: row;
     /*position: relative;*/
-    background-color: #407aff;
+    /*background-color: #407aff;*/
     /*padding: 0px 100px;*/
 }
 
 .sidebar {
     width: 300px;
     height: 88vh;
-    background-color: #407aff;
+    /*background-color: #407aff;*/
     display: flex;
     flex-direction: column;
     color: #eaf2f4;
     padding: 10px;
+    /*border-right: 1px grey solid;*/
     /*position: fixed;*/
 }
 
 .content_div {
     height: 100%;
     flex-grow: 1;
-    background-color: #eaf2f4;
+    /*background-color: #eaf2f4;*/
     overflow-y: scroll;
     display: flex;
     flex-direction: column;
@@ -128,12 +129,57 @@ main {
 }
 
 .card {
-    height: auto;
-    width: 300px;
-    border-radius: 20px;
+    min-height: 200px;
+    width: 600px;
+    color: grey;
+    border-radius: 10px;
     background-color: #ffffff;
     margin: 20px;
     padding: 20px;
     box-shadow: 5px 5px 25px lightgrey;
+    display: flex;
+    flex-direction: column;
+}
+
+.card_conditions {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-top: 17px;
+}
+
+.card_optional {
+    display: flex;
+    margin-top: 15px;
+}
+
+.subcard_optional {
+    background-color: #f1f1f1;
+    padding: 8px;
+    margin-right: 10px;
+    border-radius: 10px;
+}
+
+.card_optional2 {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+}
+
+.details {
+    margin-top: 5px;
+    text-decoration: none;
+    color: blue;
+    text-align: right;
+    padding: 5px;
+    font-size: 17px;
+}
+
+.details:hover {
+    /*background-color: #f1f1f1;*/
+    border-radius: 10px;
+    cursor: pointer;
+
 }
 
