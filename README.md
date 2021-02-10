@@ -1,2 +1,2 @@
 # jobsearch
-![Login Page](screencapture1.png)
+![Login Page](../master/myprojectscreenshots/screencapture1.png)
