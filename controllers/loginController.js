@@ -2,6 +2,7 @@ const Bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 const User = require('../models/user');
+const Job = require('../models/job');
 
 exports.getLogin = (req, res, next) => {
     res.render('login', {pageTitle: 'Log In', email:false, pw:false});
@@ -76,6 +77,13 @@ exports.postLogin = (req, res, next) => {
         name: "Kusum Koli",
         email: "kusumkoli372@gmail.com",
         role: "recruiter"
-    } 
-    res.render('dashboard', {pageTitle:'Job Openings', user: user});
+    };
+
+    Job.find()
+        .then(jobs => {
+            res.render('dashboard', {pageTitle:'Job Openings', jobs: jobs, user: user});
+        })
+        .catch(err => console.log(err));
+
 };
+        

@@ -80,6 +80,7 @@ main {
     flex-direction: row;
     /*position: relative;*/
     background-color: #407aff;
+    /*padding: 0px 100px;*/
 }
 
 .sidebar {
