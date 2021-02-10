@@ -19,7 +19,7 @@
 <body>
     <main>
         <div class="login_img">
-            <img src="/images/login-img.svg">
+            <img src="">
         </div>
         <div class="login_div" >
             <div class="login_form">
@@ -27,9 +27,9 @@
                     <% } else if(pageTitle === 'Log In') { %>/login
                     <% } else { %>/r-signup<% } %>"
                  method="POST">
-                    <h1>Welcome!</h1>
+                    <h1 style="color: #956c4d">Welcome!</h1>
                     <label for="email_add">Email Address</label><br>
-                    <% if(email) { %>
+                    <% if(email) { %> 
                         <h5 style="color: darkred; padding:0; margin: 0;">Email Id not Found!</h5>
                     <% } %>
                     <input type="text" id="email" name="email"><br>
@@ -38,7 +38,7 @@
                         <h5 style="color: darkred; padding:0; margin: 0;">Password not Found!</h5>
                     <% } %>
                     <input type="text" id="password" name="password"><br>
-                    <% if (pageTitle === 'Sign Up') { %>
+                    <% if (pageTitle !== 'Log In') { %>
                         <label for="username">Username</label><br>
                         <input type="text" id="username" name="username"><br>
                         <!-- <label for="profile_type">Profile Type</label><br>
@@ -50,7 +50,7 @@
                         <label for="location">Location</label><br>
                         <input type="text" id="location" name="location"><br> -->    
                     <% } %>
-                    <input class="submit-button" type="submit" value="<% if(pageTitle === 'Sign Up') { %>Sign Up <% } else { %> Log In <% } %>">
+                    <input class="submit-button" type="submit" value="<% if(pageTitle === 'Log In') { %>Log In <% } else { %> Sign Up <% } %>">
 
                     <% if (pageTitle === 'Sign Up') { %>
                         <h5>Already have an account? <a href="/">Log In</a></h5>

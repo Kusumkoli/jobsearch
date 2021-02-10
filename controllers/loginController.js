@@ -22,7 +22,7 @@ exports.postSignup = (req, res, next) => {
     const role = "jobseeker";
     
     const newUser = new User({ 
-        name: username,
+        username: username,
         email: email, 
         password: password,
         role: role
@@ -48,26 +48,29 @@ exports.postRSignup = (req, res, next) => {
     console.log('New User Added!');
 };
 
+// exports.postLogin = (req, res, next) => {
+//     const email = req.body.email;
+//     const password = req.body.password;
+//     User.findOne({email: email})
+//         .then(result => {
+//             if(!result) {
+//                 //console.log(result.password);
+//                 return res.render('login', {pageTitle: 'Log In', email:true, pw:false});
+//             }
+//             console.log(result);
+//             if(!Bcrypt.compareSync(password, result.password)) {
+//                 return res.render('login', {pageTitle: 'Log In', email:false, pw:true});
+//             }
+
+//             req.user = result;
+//             console.log("User details :" + req.user);
+//             console.log("The email and password combination is correct!");
+//             // res.render('dashboard', {pageTitle:'Dashboard', user:req.user });
+//         })
+//         .catch(err => console.log(err));
+// };
+
+
 exports.postLogin = (req, res, next) => {
-    const email = req.body.email;
-    const password = req.body.password;
-    User.findOne({email: email})
-        .then(result => {
-            if(!result) {
-                //console.log(result.password);
-                return res.render('login', {pageTitle: 'Log In', email:true, pw:false});
-            }
-            console.log(result);
-            if(!Bcrypt.compareSync(password, result.password)) {
-                return res.render('login', {pageTitle: 'Log In', email:false, pw:true});
-            }
-
-            req.user = result;
-            console.log("User details :" + req.user);
-            console.log("The email and password combination is correct!");
-            // res.render('dashboard', {pageTitle:'Dashboard', user:req.user });
-        })
-        .catch(err => console.log(err));
+    res.render('dashboard', {pageTitle:'Search Job'});
 };
-
-
