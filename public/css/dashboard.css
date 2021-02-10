@@ -11,8 +11,8 @@ header {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    height: auto;
-    padding: 20px 10px;
+    height: 50px;
+    padding: 20px 40px;
     background-color: white;
     box-shadow: 0px 5px 10px lightgray;
 }
@@ -25,24 +25,64 @@ header {
 
 .profile_info {
     display: flex;
+    align-items: center;    
 }
 
-.profile-info-div {
-    border-left: 2px solid lightgray; 
-    padding: 0px 0px 0px 10px;
+.profile_info div {
+    margin: 0px 20px;
+}
+
+.dropbtn {
+  background-color: white;
+  color: white;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 5px;
+  top: 20px;
+  background-color: white;
+  min-width: 300px;
+  padding: 10px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 2;
+}
+
+.dropdown-content div {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+
+
+.brand_logo {
     display: flex;
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
 }
 
 main {
     display: flex;
-    height: 88vh;
     flex-direction: row;
-    position: relative;
+    /*position: relative;*/
     background-color: #407aff;
 }
 
-.main_menu {
+.sidebar {
     width: 300px;
     height: 88vh;
     background-color: #407aff;
@@ -50,43 +90,7 @@ main {
     flex-direction: column;
     color: #eaf2f4;
     padding: 10px;
-}
-
-.main_menu p {
-    padding: 0;
-    margin: 15px 0px 0px 10px;
-}
-
-.main_menu ul {
-    padding: 20px 0px;
-    margin: 0px 20px;
-    border-bottom: 2px solid #79b8c8;
-}
-
-.main_menu ul:nth-child(3) {
-    border: none;
-}
-
-.main_menu ul li {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    padding-left: 0px;
-}
-
-.main_menu ul li i.fas {
-    font-size: 15px;
-    color: #eaf2f4;
-    margin: 5px 0px; 
-}
-
-.main_menu ul li i.fas:hover {
-    color: #ffffff;
-}
-
-.main_menu ul li a {
-    text-decoration: none;
-    color: #eaf2f4;
+    /*position: fixed;*/
 }
 
 .content_div {
@@ -108,21 +112,11 @@ main {
     background-color: #ffffff;
     font-size: 20px;
 }
+=
 
-.side_nav {
-    width: 50px;
-    background-color: #407aff;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    padding: 5px 0px;
-}
 
-.side_nav div i.fas {
-    color: #eaf2f4;
-    margin: 10px;
-}
+
+
 
 /* card items  */
 .card_div {
@@ -142,128 +136,3 @@ main {
     box-shadow: 5px 5px 25px lightgrey;
 }
 
-.profile_pic {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-}
-
-.profile_circle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-    background-color: linen;
-    margin-right: 10px;
-}
-
-.loc_info {
-    margin: 10px 0px;
-    padding: 10px;
-    border-top: 2px solid lightgrey;
-}
-.loc_info h5, .loc_info h6{
-    font-size: 17px;
-    color: #407aff;
-    padding: 0;
-    margin: 5px 0px;
-}
-
-.id_details {
-    background-color: lightgray;
-    padding: 20px 10px;
-}
-
-.id_details div i.fas{
-    font-size: 25px;
-    color: #ffffff;
-}
-
-.skills_info {
-    padding: 10px;
-
-}
-
-.skills_info h5, .skills_info h6{
-    font-size: 15px;
-    margin: 5px;
-    padding: 0;
-}
-
-.modal-btn {
-    width: 160px;
-    height: 40px;
-    background-color: #407aff;
-    color: #ffffff;
-    font-size: 15px;
-    font-weight: bold;
-    border-radius: 30px;
-    box-shadow: -0px 5px 20px #407aff;
-    outline: none;
-    border: none;
-    cursor: pointer;
-}
-
-.job_details {
-    display: flex;
-    justify-content: space-between;
-    margin: 0px 0px 20px 0px;
-}
-
-.job_detail_div {
-    margin: 10px;
-    padding: 10px 5px;
-    box-shadow: -0px 5px 20px lightgrey;
-    color: grey;
-    font-size: 15px;
-}
-
-.job_detail_div div {
-    margin: 2px 0px;
-}
-
-.modal {
-    display: none;
-    position: fixed; 
-    padding-top: 50px;
-    left: 50%; 
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%; 
-    background-color: rgb(0, 0, 0);
-    background-color: rgba(0, 0, 0, 0.5);
-}
-.modal-content {
-    position: relative; 
-    background-color: white;
-    padding: 20px; 
-    margin: auto; 
-    width: 75%;  
-    -webkit-animation-name: animatetop;
-    -webkit-animation-duration: 0.4s;
-    animation-name: animatetop;
-    animation-duration: 0.4s
-}
-.close-btn {
-    float: right; 
-    color: lightgray; 
-    font-size: 24px;  
-    font-weight: bold;
-}
-
-.close-btn:hover {
-    color: darkgray;
-}
-
-@-webkit-keyframes animatetop {
-    from {top:-300px; opacity:0} 
-    to {top:0; opacity:1}
-}
-
-@keyframes animatetop {
-    from {top:-300px; opacity:0}
-    to {top:0; opacity:1}
-}

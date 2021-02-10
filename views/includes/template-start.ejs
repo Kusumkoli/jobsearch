@@ -11,20 +11,26 @@
 <body>
     <header>
         <div class="brand_logo">
-            <div><i class="fab fa-accusoft" style="color: #407aff;"></i><span style="font-family: cursive">RompUp</span></div>
+            <div><i class="fab fa-accusoft" style="color: #407aff;"></i></div>
+            <div style="color: #407aff; font-size: 20px">ROMPUP</div>
         </div>
         <div class="profile_info">
+            <div>Job Openings</div>
+            <% if(user.role=== "recruiter") { %> 
+                <div>Post New Job</div>
+            <% } %>
             
-            <div><i class="fas fa-users"></i></div>
-            <div class="profile-info-div">
-                <div><i class="fas fa-address-book"></i></div>
-                <div style="color: lightgrey">User</div>
-                <div><i class="fas fa-chevron-down"></i></div>
+            <div class="dropdown">
+                <button class="dropbtn">
+                    <i class="fas fa-chevron-down" style="font-size: 20px"></i>
+                </button>
+                <div class="dropdown-content">
+                    <div style="font-size: 17px"><%= user.name %></div>
+                    <div style="font-size: 15px; padding-top:0px"><%= user.email %></div>
+                    <hr>
+                    <div><a>Logout</a></div>
+                </div>
             </div>
         </div>
     </header>
-    
-    <main>
-        <div class="main_menu">
-            <p>Navigation</p>
-        <div>    
+           

@@ -72,5 +72,10 @@ exports.postRSignup = (req, res, next) => {
 
 
 exports.postLogin = (req, res, next) => {
-    res.render('dashboard', {pageTitle:'Search Job'});
+    const user= {
+        name: "Kusum Koli",
+        email: "kusumkoli372@gmail.com",
+        role: "recruiter"
+    } 
+    res.render('dashboard', {pageTitle:'Job Openings', user: user});
 };

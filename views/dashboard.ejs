@@ -1,32 +1,63 @@
 <%- include("./includes/template-start.ejs") %>
-                <div class="card_div">
-                    
-                                <div class="card">
-                                    <div class="profile_pic">
-                                        <div class="profile_circle" style="align-self: start;"><i class="far fa-user"></i></div>
-                                        <div>
-                                            <p style="font-size: 20px; color: #407aff; margin: 0px 0px 20px 0px"></p>
-                                            <p style="font-size: 17px; margin: 1px 0px 0px 5px;"><i class="fas fa-building" style="font-size:15px; padding: 0px 2px"></i>
-                                                <i class="fas fa-map-marker-alt" style="font-size:15px; padding: 0px 2px"></i></p>
-                                        </div>
-                                    </div>
-                                    <div class="job_details">
-                                        <div class="job_detail_div">  
-                                            <div><i class="fas fa-address-card"></i></div>
-                                            <div><i class="fas fa-briefcase"></i></div>
-                                            <div><i class="fas fa-briefcase"></i></div>
-                                        </div>
-                                        
-                                    </div>
-                                    <button class="modal-btn">Assign Recruiters</button>
-                                    
-                                    
+    <main>
+        <div class="sidebar">
+
+        </div>
+        <div class="content_div">   
+            <div class="content_heading"><i class="fas fa-certificate" style="color: lightgrey; font-size: 25px"></i><span><%= pageTitle %></span></div>
+
+            <div class="card_div">
+                <% if(jobs.length>0) { %>
+                    <% for(let job of jobs) { %>
+                        <div class="card">
+                            <div class="profile_pic">
+                                <div class="profile_circle" style="align-self: start;"><i class="far fa-user"></i></div>
+                                <div>
+                                    <p style="font-size: 20px; color: #407aff; margin: 0px 0px 20px 0px"><%= job.title %></p>
+                                    <p style="font-size: 17px; margin: 1px 0px 0px 5px;"><i class="fas fa-building" style="font-size:15px; padding: 0px 2px"></i><%= job.company_name %>,<%= job.department %>
+                                        <i class="fas fa-map-marker-alt" style="font-size:15px; padding: 0px 2px"></i><%= job.location %></p>
                                 </div>
+                            </div>
+                            <div class="job_details">
+                                <div class="job_detail_div">  
+                                    <div><i class="fas fa-address-card"></i><%= job.job_id %></div>
+                                    <div><i class="fas fa-briefcase"></i><%= job.experience_level %></div>
+                                    <div><i class="fas fa-briefcase"></i><%= job.type %></div>
+                                </div>
+                                <div class="job_detail_div">
+                                    <div><i class="fas fa-address-card"></i><%= job.vacancies %></div>
+                                    <div><i class="fas fa-address-card"></i><%= job.salary %></div>
+                                </div>
+                            </div>
+                            <button class="modal-btn">Assign Recruiters</button>
                             
-                </div>
+                            <div class="modal">
+                                <div class="modal-content">
+                                    <span class="close-btn">&times;</span>
+                                    <p><%= job.title %></p>
+                                    <p><%= job.job_id %> </p>
+                                    <% if(recruiters.length>0) { %> 
+                                        <form action="/amdashboard" method="POST">
+                                            <label for="recruiters">Recruiters:</label>
+                                                <select id="recruiters" name="assigned_recruiter">
+                                                    <% for(let recruiter of recruiters) { %>
+                                                        <option value="<%= recruiter._id %>"><%= recruiter.name %> (<%= recruiter._id %>)</option>
+                                                    <% } %>
+                                                </select>
+                                            <input type="submit" value="Assign" class="modal-btn">
+                                        </form>
+                                    <% } else { %>
+                                        <p>No recruiters!</p>
+                                    <% } %>    
+                                </div>
+                            </div>
+                        </div>
+                    <% } %>
+                <% } else { %>
+                    <h3>No Recruiters!</h3>
+                <% } %>
             </div>
-            
-        </div>       
+        </div>        
     </main>
 </body>
 
