@@ -1,61 +1,89 @@
 <%- include("./includes/template-start.ejs") %>
-    <main>
-        <div class="sidebar">
-
-        </div>
-        <div class="content_div">   
-            <div class="content_heading"><i class="fas fa-certificate" style="color: lightgrey; font-size: 25px"></i><span><%= pageTitle %></span></div>
-
-            <div class="card_div">
-                <% if(jobs.length>0) { %>
-                    <% for(let job of jobs) { %>
-                        <div class="card">
-                            <div style="color: black;
-                            font-size: 20px; font-weight: bolder;"> <%= job.job_title %></div>   
-                            <div style="font-size: 16px;"> <%= job.company_name %></div>
-                            <div style="margin-top: 10px"><i class="fas fa-map-marker-alt" style="font-size:13px; padding: 0px 2px; margin-right:5px"></i><%= job.location %></div>
-                            <div class="card_conditions"> 
-                                <div class="subcard_conditions">
-                                    <div style="color:  "><i class="fas fa-rupee-sign" style="font-size:14px; padding: 0px 5px 0px 0px;"></i>Expected Salary</div>
-                                    <div><%=job.min_salary %> - <%=job.max_salary %> lpa</div>
-                                </div>
-                                <div class="subcard_conditions">
-                                    <div><i class="far fa-clock" style="font-size:14px; padding: 0px 5px 0px 0px;"></i>Apply By</div>
-                                    <div><%=job.apply_before %></div>
-                                </div>
-                                <div class="subcard_conditions">
-                                    <div><i class="far fa-moon  " style="font-size:14px; padding: 0px 5px 0px 0px;"></i>Number of Openings</div>
-                                    <div><%=job.num_of_openings %></div>
-                                </div>                                
-                            </div> 
-                            <div class="card_optional">
-                                <% if(job.wfh) { %> 
-                                    <div class="subcard_optional">Work from home</div>
-                                <% } %>
-                                <% if(job.parttime) { %> 
-                                    <div class="subcard_optional">Part Time</div>
-                                <% } %>
-                                <% if(job.internship) { %> 
-                                    <div class="subcard_optional">Internship</div>
-                                <% } %>
-                            </div> 
-                            <div class="card_optional2">
-                                <% if(job.womenrestart) { %> 
-                                    <div class="subcard_optional2"><i class="fas fa-check" style="font-size:13px; padding: 0px 5px 0px 0px;"></i>Women wanting to (re)start their career</div>
-                                <% } %>
-                                <% if(job.lostjob) { %> 
-                                    <div class="subcard_optional2"><i class="fas fa-check" style="font-size:13px; padding: 0px 5px 0px 0px;"></i>Seeking people who lost job due to pandemic</div>
-                                <% } %>
-                            </div>      
-                            <a href="/jobs/<%= job._id %>" class="details">View Details </a>                  
+    <div class="wrapper">    
+        <main>
+            <div class="sidebar">
+                <div class="form_div">
+                    <form class="filter_job" action="/jobsearch" method="POST">
+                        <div class="form-control">
+                            <label for="title">Category</label><br>
+                            <input type="text" name="title" id="title">
                         </div>
-                    <% } %>
-                <% } else { %>
-                    <h3>No Jobs Found</h3>
-                <% } %>
+                        <div class="form-control">
+                            <label for="title">Preferred Location</label><br>
+                            <input type="text" name="location" id="location">
+                        </div>
+                        <div class="form-control"> 
+                            <label for="title">Start Date</label><br>
+                            <input type="date" name="startdate">
+                        </div> 
+                        <div class="form-control"> 
+                            <label for="title">Salary Range</label><br>
+                            <input type="number" name="min_salary" style="width: 70px;" id="min_salary"> - <input type="number" name="max_salary" id="max_salary" style="width: 70px;"> lpa
+                        </div>     
+                        <input type="checkbox" id="women" name="women">
+                        <label for="women">Jobs for women in tech </label><br>
+                        <input type="checkbox" id="pandemic" name="pandemic">
+                        <label for="pandemic">Seeking people who lost jobs due to pandemic</label><br>
+                        <input type="checkbox" id="wfh" name="wfh">
+                        <label for="wfh">Work from home </label><br>
+                        <button class="submit-button" type="submit">Search</button>
+                    </form>
+                </div>
             </div>
-        </div>        
-    </main>
+            <div class="content_div">   
+                <div class="content_heading"><span><%= jobs.length %> Job Openings</span></div>
+
+                <div class="card_div">
+                    <% if(jobs.length>0) { %>
+                        <% for(let job of jobs) { %>
+                            <div class="card">
+                                <div style="color: black;
+                                font-size: 20px; font-weight: bolder;"> <%= job.job_title %></div>   
+                                <div style="font-size: 16px;"> <%= job.company_name %></div>
+                                <div style="margin-top: 10px"><i class="fas fa-map-marker-alt" style="font-size:13px; padding: 0px 2px; margin-right:5px"></i><%= job.location %></div>
+                                <div class="card_conditions"> 
+                                    <div class="subcard_conditions">
+                                        <div style="color:  "><i class="fas fa-rupee-sign" style="font-size:14px; padding: 0px 5px 0px 0px;"></i>Expected Salary</div>
+                                        <div><%=job.min_salary %> - <%=job.max_salary %> lpa</div>
+                                    </div>
+                                    <div class="subcard_conditions">
+                                        <div><i class="far fa-clock" style="font-size:14px; padding: 0px 5px 0px 0px;"></i>Apply By</div>
+                                        <div><%=job.apply_before %></div>
+                                    </div>
+                                    <div class="subcard_conditions">
+                                        <div><i class="far fa-moon  " style="font-size:14px; padding: 0px 5px 0px 0px;"></i>Number of Openings</div>
+                                        <div><%=job.num_of_openings %></div>
+                                    </div>                                
+                                </div> 
+                                <div class="card_optional">
+                                    <% if(job.wfh) { %> 
+                                        <div class="subcard_optional">Work from home</div>
+                                    <% } %>
+                                    <% if(job.parttime) { %> 
+                                        <div class="subcard_optional">Part Time</div>
+                                    <% } %>
+                                    <% if(job.internship) { %> 
+                                        <div class="subcard_optional">Internship</div>
+                                    <% } %>
+                                </div> 
+                                <div class="card_optional2">
+                                    <% if(job.womenrestart) { %> 
+                                        <div class="subcard_optional2"><i class="fas fa-check" style="font-size:13px; padding: 0px 5px 0px 0px;"></i>Women wanting to (re)start their career</div>
+                                    <% } %>
+                                    <% if(job.lostjob) { %> 
+                                        <div class="subcard_optional2"><i class="fas fa-check" style="font-size:13px; padding: 0px 5px 0px 0px;"></i>Seeking people who lost job due to pandemic</div>
+                                    <% } %>
+                                </div>      
+                                <a href="/jobs/<%= job._id %>" class="details">View Details </a>                  
+                            </div>
+                        <% } %>
+                    <% } else { %>
+                        <h3>No Jobs Found</h3>
+                    <% } %>
+                </div>
+            </div>        
+        </main>
+    </div>
 </body>
 
 

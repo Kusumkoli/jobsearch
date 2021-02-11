@@ -13,20 +13,20 @@
     <header>
         <div class="brand_logo">
             <div><i class="fab fa-accusoft" style="color: #407aff;"></i></div>
-            <div style="color: #407aff; font-size: 20px">ROMPUP</div>
+            <div style="color: #407aff; font-size: 20px">RECRUITE</div>
         </div>
         <div class="profile_info">
-            <div>Job Openings</div>
+            <div class="main-header__item"><a class="<%= pageTitle === 'Job Openings' ? 'active' : '' %>" href="/jobsearch">Job Openings</a></div>
             <% if(user.role=== "recruiter") { %> 
-                <div>Post New Job</div>
+                <div class="main-header__item"><a class="<%= pageTitle === 'Post New Job' ? 'active' : '' %>" href="/jobpostings">Your Job Postings</a></div>
             <% } %>
             
             <div class="dropdown">
                 <button class="dropbtn">
-                    <i class="fas fa-chevron-down" style="font-size: 20px"></i>
+                    <i class="fas fa-user-circle" style="font-size: 20px: color:grey"></i>
                 </button>
                 <div class="dropdown-content">
-                    <div style="font-size: 17px"><%= user.name %></div>
+                    <div style="font-size: 17px"><%= user.username %></div>
                     <div style="font-size: 15px; padding-top:0px"><%= user.email %></div>
                     <hr>
                     <div><a>Logout</a></div>

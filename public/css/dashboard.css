@@ -75,6 +75,21 @@ header {
     align-items: center;
 }
 
+.main-header__item a {
+  text-decoration: none;
+  color: grey;
+}
+
+.main-header__item a:hover,
+.main-header__item a:active,
+.main-header__item a.active {
+  color: black;
+}
+
+.wrapper {
+    margin: 0 200px;
+}
+
 main {
     display: flex;
     flex-direction: row;
@@ -84,22 +99,73 @@ main {
 }
 
 .sidebar {
-    width: 300px;
+    width: 700px;
     height: 88vh;
-    /*background-color: #407aff;*/
+    /* background-color: #407aff; */
     display: flex;
-    flex-direction: column;
-    color: #eaf2f4;
-    padding: 10px;
-    /*border-right: 1px grey solid;*/
-    /*position: fixed;*/
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.form_div {
+    position: fixed;
+    width: 260px;
+    top: 150px;
+    left: 100px;
+    height: 400px;
+    overflow-y: scroll;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.form-control {
+    margin: 10px;
+}
+
+.form-control label{
+    color: grey;
+}
+
+.form-control input{
+    padding: 5px;
+    outline: none;
+    background-color: none;
+    border-radius: 4px;
+    border-color: grey;
+    width: -webkit-fill-available;
+}
+
+.form-control input:hover, .form-control input:hover {
+    border-color: #afafe4;
+} 
+
+.submit-button {
+    width: 100px;
+    /*height: 50px;*/
+    background-color: #956c4d;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 30px;
+    box-shadow: -0px 5px 20px #956c4d;
+    outline: none;
+    border: none;
+    padding: 5px;
+}
+
+.submit-button:hover {
+    cursor: pointer;
+    background-color: #252540;
 }
 
 .content_div {
     height: 100%;
-    flex-grow: 1;
+    /*flex-grow: 1;*/
     /*background-color: #eaf2f4;*/
-    overflow-y: scroll;
+    /*overflow-y: scroll;*/
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
     border-top-left-radius: 30px;
@@ -108,13 +174,16 @@ main {
 .content_heading {
     display: flex;
     align-items: center;
-    margin: 10px;
-    padding: 15px 0px;
+    margin: 0px 50px;
+    border: 4px #ffffff solid;
+    padding: 15px;
+    /* text-align: center; */
     border-radius: 30px;
-    background-color: #ffffff;
+    /* background-color: #ffffff; */
+    color: cornflowerblue;
     font-size: 20px;
+    font-weight: bolder;
 }
-=
 
 
 
@@ -124,8 +193,9 @@ main {
 .card_div {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    /*justify-content: space-around;*/
     margin: 30px;
+    border-left: 1px #c5bebe solid;
 }
 
 .card {
