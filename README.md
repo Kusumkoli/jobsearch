@@ -12,15 +12,14 @@ Deployed on https://jobsearch-wit.herokuapp.com/
 	2. Recruiter 
 
 2. Registration page  have the following fields
-   ```
-            a. user_id
-            b. username
-            c. password
-            d. Email
-            e. Role:
-            	(i) Job Seeker
-            	(ii) Recruiter
-  ```         
+              	a. user_id
+            	b. username
+            	c. password
+            	d. Email
+            	e. Role:
+            		(i) Job Seeker
+            		(ii) Recruiter       
+
 
 3. Login is authenticated and the password is hashed before storing in the database
 
