@@ -1,0 +1,59 @@
+.form_div {
+	display: none;
+}
+
+.addjob {
+	display: flex;
+	height: 250px;
+	width: 200px;
+	border-radius: 20px;
+	border: 3px solid #2196f3;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+
+.job_form {
+	width: 500px;
+	margin: 0 auto;
+	padding: 50px;
+}
+
+.form-control label{
+    color: black;
+}
+
+.form-control input, .form-control textarea{
+    padding: 7px;
+    outline: none;
+    background-color: none;
+    border-radius: 4px;
+    border: 1px lightgrey solid;
+    width: -webkit-fill-available;
+    font-size: 17px;
+    font-family: sans-serif;
+}
+
+.form-control input:hover, .form-control input:hover {
+    border-color: #afafe4;
+} 
+
+.submit-button {
+    width: 200px;
+    background-color: #956c4d;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 30px;
+    box-shadow: -0px 5px 20px #956c4d;
+    outline: none;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 20px;
+}
+
+.submit-button:hover {
+    cursor: pointer;
+    background-color: #252540;
+}

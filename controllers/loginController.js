@@ -1,8 +1,8 @@
 const Bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
 
 const User = require('../models/user');
 const Job = require('../models/job');
+
 
 exports.getLogin = (req, res, next) => {
     res.render('login', {pageTitle: 'Log In', email:false, pw:false});
@@ -32,7 +32,8 @@ exports.postSignup = (req, res, next) => {
     console.log('New User Added!');
 
     console.log(newUser);
-    res.render('login', {pageTitle:'Log In', email:false, pw:false });
+    // res.render('login', {pageTitle:'Log In', email:false, pw:false });
+    res.redirect('/');
 };
 
 
@@ -51,7 +52,8 @@ exports.postRSignup = (req, res, next) => {
     newUser.save();
     console.log('New User Added!');
     console.log(newUser);
-    res.render('login', {pageTitle:'Log In', email:false, pw:false });
+    // res.render('login', {pageTitle:'Log In', email:false, pw:false });
+    res.redirect('/');
 };
 
 exports.postLogin = (req, res, next) => {
@@ -69,14 +71,29 @@ exports.postLogin = (req, res, next) => {
                 return res.render('login', {pageTitle: 'Log In', email:false, pw:true});
             }
 
-            req.user = result;
-            console.log("User details :" + req.user);
+            const user = result;
+            const loggedin = true;
+            res.clearCookie('userdetails');
+            res.cookie('userdetails', user);
+            // res.cookie('loggedin', loggedin);
+            console.log(req.cookies.userdetails);
+            // console.log(req.cookies.loggedin);
             console.log("The email and password combination is correct!");
             Job.find()
                 .then(jobs => {
-                    res.render('dashboard', {pageTitle:'Job Openings', jobs: jobs, user: req.user});
+                    res.render('dashboard', {pageTitle:'Job Openings', jobs: jobs, user: req.cookies.userdetails});
                 })
                 .catch(err => console.log(err));
         })
         .catch(err => console.log(err));
 };
+
+
+// exports.logout = (req, res, next) => {
+//     res.clearCookie('loggedin');
+//     const loggedout = false;
+//     res.cookie('loggedin', loggedout);
+//     console.log('logout:', req.cookies.loggedin);
+
+//     res.render('login',{pageTitle:'Log In', user: req.cookies.userdetails} );
+// };

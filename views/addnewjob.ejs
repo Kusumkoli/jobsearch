@@ -1,0 +1,45 @@
+<%- include("./includes/template-start.ejs") %>
+	<div class="job_form">
+		<form class="product-form" action="/addjob" method="POST">
+            <div class="form-control">
+                <label for="title">Job Title</label><br>
+                <input type="text" name="job_title" id="job_title">
+            </div>
+            <div class="form-control">
+                <label for="title">Company Name</label><br>
+                <input type="text" name="company_name" id="company_name" >
+            </div>
+            <div class="form-control"> 
+                <label for="title">Location</label><br>
+                <input type="text" name="location" id="location">
+            </div>
+            <div class="form-control">
+                <label for="title">Job Description</label><br>
+                <textarea name="job_desc" id="job_desc" rows="10" style="width: -webkit-fill-available"></textarea>
+            </div>     
+            <div class="form-control">
+                <label for="title">Salary</label><br>
+                <label for="title">Minimum: </label><input type="number" name="min_salary" id="min_salary"></input> <label for="title">Maximum: </label><input type="number" name="max_salary" id="max_salary"></input>
+            </div> 
+            <div class="form-control">
+                <label for="title">Eligibility Criteria</label><br>
+                <textarea name="eligibility" id="eligibility" rows="10" style="width: -webkit-fill-available"></textarea>
+            </div>
+            <div class="form-control">
+                <label for="title">Skills</label><br>
+                <textarea name="skills_needed" id="skills_needed" rows="10" style="width: -webkit-fill-available"></textarea>
+            </div>
+            <div class="form-control">
+                <label for="title">Number of Openings</label><br>
+                <input type="number" name="num_of_openings" id="num_of_openings"></input>
+            </div> 
+            <div class="form-control">
+                <label for="title">Perks</label><br>
+                <textarea name="perks" id="perks" rows="5" style="width: -webkit-fill-available"></textarea>
+            </div>    
+            <input type="hidden" name="recruiter_Id" id="recruiter_Id" value="<%= user._id %>">
+            <button type="submit" class="submit-button"> Add Job </button>
+        </form>
+	</div>
+</body>
+</html>

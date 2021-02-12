@@ -20,21 +20,20 @@ const jobSchema = new Schema({
 
     apply_before: {
         type: String,
-        required: true
     },
     job_desc: {
         type: String,
         required: true
     },
     skills_needed: {
-        type: String,
+        type: Array,
         required: true
     },
     eligibility: {
         type: String
     },
     perks: {
-        type: String
+        type: Array
     },
     num_of_openings: {
         type: Number
@@ -55,6 +54,10 @@ const jobSchema = new Schema({
     //jobs seeking people who losts their jobs due to the pandemic
     lostjob: {
         type: Boolean
+    },
+    recruiter_Id : {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
     }
 });
 

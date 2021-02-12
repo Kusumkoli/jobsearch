@@ -1,6 +1,36 @@
 <%- include("./includes/template-start.ejs") %>
-	<div>
-		Job Details
+	<div class="job_main">
+		<div class="job_heading">
+			<div><%= job.job_title %></div>
+			<div>At <%= job.company_name %></div>
+			<div>
+				<input class="submit-button" type="submit" value="APPLY FOR THIS JOB">
+			</div>
+		</div>
+		<div class="job_content">
+			<div class="job_div1">
+				<div>
+					<h3 class="blackcolor"> ABOUT THIS ROLE </h3>
+					<br>
+					<p><%= job.job_desc %></p>
+					<br>
+					<p><%= job.eligibility %></p>
+					<br>
+				</div>
+				<div>
+					<h3 class="blackcolor"> SKILLS </h3>
+					<br>
+					<% for(let skill of job.skills_needed) { %>
+						<div class="skill"><%= skill %></div>
+					<% } %>
+				</div>
+			</div>
+			<div class="job_div2">
+				<% for(let perk of job.perks) { %>
+					<div class="perks"><%= perk %></div>
+				<% } %>
+			</div>
+		</div>
 	</div>
 
 </body>

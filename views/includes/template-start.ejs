@@ -6,14 +6,19 @@
     <title><%= pageTitle %></title>
     <link rel="icon" type="image/png" href="/images/favicon.ico">
     <link rel="stylesheet" href="/css/dashboard.css">
-    <link rel="stylesheet" href="/css/jobdetails.css">
+    <% if(pageTitle==="Job Details") { %> 
+        <link rel="stylesheet" href="/css/jobdetails.css">
+    <% } %>
+    <% if(pageTitle==="Your Job Postings" || pageTitle==="Add New Job") { %> 
+        <link rel="stylesheet" href="/css/jobpostings.css">
+    <% } %>
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
 </head>
 <body>
     <header>
         <div class="brand_logo">
             <div><i class="fab fa-accusoft" style="color: #407aff;"></i></div>
-            <div style="color: #407aff; font-size: 20px">RECRUITE</div>
+            <div style="color: #407aff; font-size: 30px">WIT</div>
         </div>
         <div class="profile_info">
             <div class="main-header__item"><a class="<%= pageTitle === 'Job Openings' ? 'active' : '' %>" href="/jobsearch">Job Openings</a></div>
@@ -29,7 +34,7 @@
                     <div style="font-size: 17px"><%= user.username %></div>
                     <div style="font-size: 15px; padding-top:0px"><%= user.email %></div>
                     <hr>
-                    <div><a>Logout</a></div>
+                    <div><a href="/logout">Logout</a></div>
                 </div>
             </div>
         </div>

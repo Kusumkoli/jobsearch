@@ -1,3 +1,9 @@
+* {
+    margin: 0;
+    padding: 0;
+    /*box-sizing: border-box;*/
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -62,9 +68,13 @@ header {
   display: block;
 }
 
-.dropdown-content a:hover {background-color: #ddd;}
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
 
-.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
 
 
 
@@ -93,19 +103,19 @@ header {
 main {
     display: flex;
     flex-direction: row;
-    /*position: relative;*/
-    /*background-color: #407aff;*/
-    /*padding: 0px 100px;*/
 }
 
 .sidebar {
-    width: 700px;
+    width: 1000px;
     height: 88vh;
-    /* background-color: #407aff; */
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
+}
+
+.addjob {
+    display: none;
 }
 
 .form_div {
@@ -113,7 +123,7 @@ main {
     width: 260px;
     top: 150px;
     left: 100px;
-    height: 400px;
+    height: 450px;
     overflow-y: scroll;
     background-color: white;
     padding: 20px;
@@ -121,20 +131,22 @@ main {
 }
 
 .form-control {
-    margin: 10px;
+    margin-bottom: 20px;
 }
 
 .form-control label{
-    color: grey;
+    color: black;
 }
 
 .form-control input{
-    padding: 5px;
+    padding: 7px;
     outline: none;
     background-color: none;
     border-radius: 4px;
-    border-color: grey;
+    border: 1px lightgrey solid;
     width: -webkit-fill-available;
+    font-size: 17px;
+    font-family: sans-serif;
 }
 
 .form-control input:hover, .form-control input:hover {
@@ -143,7 +155,6 @@ main {
 
 .submit-button {
     width: 100px;
-    /*height: 50px;*/
     background-color: #956c4d;
     color: #ffffff;
     font-size: 15px;
@@ -153,6 +164,7 @@ main {
     outline: none;
     border: none;
     padding: 5px;
+    margin-top: 20px;
 }
 
 .submit-button:hover {
@@ -162,9 +174,6 @@ main {
 
 .content_div {
     height: 100%;
-    /*flex-grow: 1;*/
-    /*background-color: #eaf2f4;*/
-    /*overflow-y: scroll;*/
     margin-top: 50px;
     display: flex;
     flex-direction: column;
@@ -175,12 +184,9 @@ main {
     display: flex;
     align-items: center;
     margin: 0px 50px;
-    border: 4px #ffffff solid;
     padding: 15px;
-    /* text-align: center; */
-    border-radius: 30px;
-    /* background-color: #ffffff; */
-    color: cornflowerblue;
+    border-radius: 30px; 
+    color: grey;
     font-size: 20px;
     font-weight: bolder;
 }
@@ -193,8 +199,7 @@ main {
 .card_div {
     display: flex;
     flex-wrap: wrap;
-    /*justify-content: space-around;*/
-    margin: 30px;
+    margin: 10px 30px 30px 30px;
     border-left: 1px #c5bebe solid;
 }
 
@@ -244,12 +249,16 @@ main {
     text-align: right;
     padding: 5px;
     font-size: 17px;
+    display: inline;
 }
 
 .details:hover {
-    /*background-color: #f1f1f1;*/
     border-radius: 10px;
     cursor: pointer;
 
 }
 
+.checklabel {
+    font-size: 14px;
+    color: grey;
+}

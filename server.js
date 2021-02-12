@@ -1,7 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 const path = require('path');
+
 
 //routes
 const loginRoutes = require('./routes/login');
@@ -14,12 +16,15 @@ app.set('view engine', 'ejs');
 app.set('views', 'views');
 app.use(express.static(__dirname + '/public'));
 
+app.use(cookieParser());
+//Routing 
 app.use(bodyParser.urlencoded({ extended: true }));
 loginRoutes.use(bodyParser.json());
 app.use(loginRoutes);
-
 jobRoutes.use(bodyParser.json());
 app.use(jobRoutes);
+
+
 
 const PORT = process.env.PORT || 2010;
 

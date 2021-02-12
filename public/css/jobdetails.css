@@ -1,0 +1,64 @@
+.job_main {
+	display: flex;
+	flex-direction: column;
+	background-color: white;
+}
+
+.job_heading {
+	height: 250px;
+	width: auto;
+	background-color: lightblue;
+	padding: 70px 0px 0px 100px;
+}
+
+.job_heading div {
+	color: white;
+	font-size: 50px;
+}
+
+.submit-button {
+	width: auto;
+    height: 50px;
+    padding: 5px 20px;
+    border-radius: 10px;
+    box-shadow: none;
+}
+
+.job_content {
+	margin: 50px 100px;
+	display: flex;
+	flex-direction: row;
+	color: grey;
+
+}
+
+.job_div1 {
+	flex: 2;
+}
+
+.skill {
+	display: inline-block;
+	border-radius: 5px;
+	border: 2px #76a5b5 solid;
+	padding: 5px 10px;
+	margin: 10px 10px 0px 0px;
+}
+
+
+.job_div2 {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	padding: 10px 0px 0px 30px; 
+} 
+
+.perks {
+	border-radius: 5px;
+	border: 2px #03a9f4 solid;
+	padding: 20px 10px;
+	margin: 5px;
+}
+
+.blackcolor {
+	color: black;
+}

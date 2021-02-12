@@ -2,6 +2,16 @@
     <div class="wrapper">    
         <main>
             <div class="sidebar">
+                <div class="addjob"> 
+                    <a href="/addjob" style="text-decoration:none">
+                        <div><i class="fas fa-plus-circle" style="font-size:40px; color:#2196f5"></i><br>
+                        <p style="padding: 10px;
+                            font-size: 20px;
+                            color: #4a4341;
+                            text-decoration: none;"> Add New Job<p>
+                        </div>
+                    </a>
+                </div>
                 <div class="form_div">
                     <form class="filter_job" action="/jobsearch" method="POST">
                         <div class="form-control">
@@ -21,17 +31,18 @@
                             <input type="number" name="min_salary" style="width: 70px;" id="min_salary"> - <input type="number" name="max_salary" id="max_salary" style="width: 70px;"> lpa
                         </div>     
                         <input type="checkbox" id="women" name="women">
-                        <label for="women">Jobs for women in tech </label><br>
+                        <label for="women" class="checklabel">Jobs for women in technology </label><br>
                         <input type="checkbox" id="pandemic" name="pandemic">
-                        <label for="pandemic">Seeking people who lost jobs due to pandemic</label><br>
+                        <label for="pandemic" class="checklabel">Jobs seeking people who lost jobs due to pandemic</label><br>
                         <input type="checkbox" id="wfh" name="wfh">
-                        <label for="wfh">Work from home </label><br>
+                        <label for="wfh" class="checklabel">Work from home </label><br>
                         <button class="submit-button" type="submit">Search</button>
                     </form>
                 </div>
             </div>
-            <div class="content_div">   
-                <div class="content_heading"><span><%= jobs.length %> Job Openings</span></div>
+            <div class="content_div"> 
+
+                <div class="content_heading"><span><%= jobs.length %> Job Found</span></div>
 
                 <div class="card_div">
                     <% if(jobs.length>0) { %>
@@ -73,7 +84,10 @@
                                     <% if(job.lostjob) { %> 
                                         <div class="subcard_optional2"><i class="fas fa-check" style="font-size:13px; padding: 0px 5px 0px 0px;"></i>Seeking people who lost job due to pandemic</div>
                                     <% } %>
-                                </div>      
+                                </div>     
+                                <% if(pageTitle==="Your Job Postings") { %> 
+                                    <a href="/deletejob/<%= job._id %>" class="details">Delete Job </a>     
+                                <% } %>
                                 <a href="/jobs/<%= job._id %>" class="details">View Details </a>                  
                             </div>
                         <% } %>
