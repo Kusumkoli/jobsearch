@@ -22,29 +22,23 @@
                             <label for="title">Preferred Location</label><br>
                             <input type="text" name="location" id="location">
                         </div>
-                        <div class="form-control"> 
+                        <!-- <div class="form-control"> 
                             <label for="title">Start Date</label><br>
                             <input type="date" name="startdate">
-                        </div> 
+                        </div> --> 
                         <div class="form-control"> 
-                            <label for="title">Salary Range</label><br>
-                            <input type="number" name="min_salary" style="width: 70px;" id="min_salary"> - <input type="number" name="max_salary" id="max_salary" style="width: 70px;"> lpa
+                            <label for="title">Expected Salary</label><br>
+                            <input type="number" name="expected_salary" style="width: 100px;" id="expected_salary"> lpa
                         </div>     
-                        <input type="checkbox" id="women" name="women">
-                        <label for="women" class="checklabel">Jobs for women in technology </label><br>
-                        <input type="checkbox" id="pandemic" name="pandemic">
-                        <label for="pandemic" class="checklabel">Jobs seeking people who lost jobs due to pandemic</label><br>
-                        <input type="checkbox" id="wfh" name="wfh">
-                        <label for="wfh" class="checklabel">Work from home </label><br>
                         <button class="submit-button" type="submit">Search</button>
                     </form>
                 </div>
             </div>
             <div class="content_div"> 
-
-                <div class="content_heading"><span><%= jobs.length %> Job Found</span></div>
-
                 <div class="card_div">
+                <a href="/womenjobs" class="jobsearchlink"><i class="fas fa-female"></i>Jobs for Women</a>
+                <a href="/coronajobs" class="jobsearchlink"><i class="fas fa-lightbulb"></i> Jobs for people who lost job due to Covid</a>
+                <div class="content_heading"><%= jobs.length %> Job/s Found</div>
                     <% if(jobs.length>0) { %>
                         <% for(let job of jobs) { %>
                             <div class="card">
@@ -96,9 +90,7 @@
                     <% } %>
                 </div>
             </div>        
-        </main>
+        </main> 
     </div>
 </body>
-
-
 </html>

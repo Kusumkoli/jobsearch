@@ -21,6 +21,9 @@ const jobSchema = new Schema({
     apply_before: {
         type: String,
     },
+    start_date: {
+        type: String,
+    },
     job_desc: {
         type: String,
         required: true

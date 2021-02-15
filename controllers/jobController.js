@@ -1,5 +1,6 @@
 const User = require('../models/user');
 const Job = require('../models/job');
+const Program = require('../models/program');
 
 
 exports.getJobSearch = (req, res, next) => {
@@ -21,14 +22,19 @@ exports.getJobDetails = (req, res, next) => {
 };
 
 exports.postJobSearch = (req, res, next) => {
+    console.log(req.body);
     
-    // Job.find({"job_title": req.body.title,$or:[{"type":"smartreply"},{"category":"small_talk"}]})
-    Job.find({ "$or": [
-            {"job_title": req.body.title},
-            {"location": req.body.location},
-            {"womenstart": true},
-            {"wfh": true},
-            {"lostjob": true}
+    Job.find({ "$and": [
+            {"job_title": {$regex: req.body.title, $options: "$i"}},
+            {
+                "$or": [
+                    {"location": {$regex: req.body.location, $options: "$i"}},
+                ]
+            },
+            { "min_salary" : {$lte : req.body.expected_salary }},
+            { "max_salary" : {$gte : req.body.expected_salary }},
+            { "start_date" : {$gte :{"$dateFromString" : req.body.startdate }}}
+            
         ]})
         .then(jobs => {
             res.render('dashboard', {pageTitle:'Job Openings', jobs: jobs, user: req.cookies.userdetails});
@@ -92,10 +98,55 @@ exports.postAddJob = (req, res, next) => {
 
     job.save()
         .then(() => {
-            console.log('Added new JOb');
+            console.log('Added new Job');
             res.redirect('/jobpostings');
         })
         .catch(err => {
             console.log(err);
         });
 };
+
+exports.getPrograms = (req, res, next) => {
+    Program.find({for: "corona"})
+        .then(programs_women => {
+            Program.find({for: "women"})
+                .then(programs_corona => {
+                    // console.log(programs_women);
+                    // console.log(programs_corona);
+                    res.render('programs', {pageTitle: 'Programs', 
+                                            user: req.cookies.userdetails,
+                                            programs_women: programs_women,
+                                            programs_corona: programs_corona });
+                })
+                .catch(err => console.log(err));
+            
+        })
+        .catch(err => console.log(err));
+}
+
+exports.getProgramDetails = (req, res, next) => {
+    const program_Id = req.params.program_Id;
+
+    Program.findById(program_Id)
+        .then(program => {
+            // console.log(program);
+            res.render('job-details', {program: program, pageTitle: 'Program Details', user: req.cookies.userdetails});
+        })
+        .catch(err => console.log(err));
+}
+
+exports.getWomenJobs = (req, res, next) => {
+    Job.find({womenrestart: true})
+        .then(jobs => {
+            res.render('dashboard', {pageTitle:'Job Openings', jobs: jobs, user: req.cookies.userdetails});
+        })
+        .catch(err => console.log(err));   
+}
+
+exports.getCoronaJobs = (req, res, next) => {
+    Job.find({lostjob: true})
+        .then(jobs => {
+            res.render('dashboard', {pageTitle:'Job Openings', jobs: jobs, user: req.cookies.userdetails});
+        })
+        .catch(err => console.log(err));   
+}

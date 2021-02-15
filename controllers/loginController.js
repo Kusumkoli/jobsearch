@@ -73,11 +73,11 @@ exports.postLogin = (req, res, next) => {
 
             const user = result;
             const loggedin = true;
-            res.clearCookie('userdetails');
+            // res.clearCookie('userdetails');
             res.cookie('userdetails', user);
-            // res.cookie('loggedin', loggedin);
-            console.log(req.cookies.userdetails);
-            // console.log(req.cookies.loggedin);
+            res.cookie('loggedin', loggedin);
+            console.log('Cookie details',req.cookies.userdetails);
+            console.log('Logged in:', req.cookies.loggedin);
             console.log("The email and password combination is correct!");
             Job.find()
                 .then(jobs => {
@@ -89,11 +89,13 @@ exports.postLogin = (req, res, next) => {
 };
 
 
-// exports.logout = (req, res, next) => {
-//     res.clearCookie('loggedin');
-//     const loggedout = false;
-//     res.cookie('loggedin', loggedout);
-//     console.log('logout:', req.cookies.loggedin);
+exports.getLogout = (req, res, next) => {
+    
+    const loggedout = false;
+    res.cookie('loggedin', loggedout);
+    console.log('loggedin:', req.cookies.loggedin);
+    res.clearCookie('userdetails');
+    console.log('userdetails', req.cookies.userdetails);
 
-//     res.render('login',{pageTitle:'Log In', user: req.cookies.userdetails} );
-// };
+    return res.redirect('/');
+};

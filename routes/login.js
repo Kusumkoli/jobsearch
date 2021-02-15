@@ -4,15 +4,6 @@ const router = express.Router();
 //controllers
 const loginController = require('../controllers/loginController');
 
-
-// function validateCookie(req,res,next) {
-// 	const {cookies} = req;
-// 	if(cookies.loggedin)
-// 	{
-// 		return res.redirect('/jobsearch');		
-// 	}
-// }
-
 //job seeker log-in get request
 router.get('/', loginController.getLogin);
 
@@ -32,8 +23,6 @@ router.post('/r-signup', loginController.postRSignup);
 // log-in post request for both 
 router.post('/login', loginController.postLogin);
 
-router.get('/logout', (res,req) => {
-	return req.redirect('/');
-})
+router.get('/logout', loginController.getLogout);
 
 module.exports = router;

@@ -1,0 +1,101 @@
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #956c4d;
+  /*background-color: #f1f1f1;*/
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+  font-size: 17px;
+  color: #956c4d;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover, .tab button:focus {
+  background-color: #252540;
+  color: white;
+}
+
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 40px;
+  -webkit-animation: fadeEffect 1s;
+  animation: fadeEffect 1s;
+  background-color: white;
+  color: grey;
+}
+
+/* Fade in tabs */
+@-webkit-keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+.programs_wrapper {
+  margin: 50px 200px;
+}
+
+.program_box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 50px 0px;
+}
+
+.program_each {
+  border-radius: 20px;
+  height: 240px;
+  width: 240px;
+  border: 6px solid #46c5;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+}
+
+.heading1 {
+  font-size: 23px;
+  color: #252540;
+  font-weight: bolder;
+  text-align: center;
+}
+
+.details {
+  border-radius: 10px;
+  background-color: #956c4d;
+  color: white;
+  padding: 10px 20px;
+  margin-top: 10px;
+}

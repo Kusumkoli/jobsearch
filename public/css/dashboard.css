@@ -1,26 +1,36 @@
 * {
     margin: 0;
     padding: 0;
-    /*box-sizing: border-box;*/
 }
 
 body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     background-color: #eaf2f4;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 header {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     height: 50px;
     padding: 20px 40px;
     background-color: white;
-    box-shadow: 0px 5px 10px lightgray;
+    -webkit-box-shadow: 0px 5px 10px lightgray;
+            box-shadow: 0px 5px 10px lightgray;
 }
 
 .fas, .fab {
@@ -30,8 +40,12 @@ header {
 }
 
 .profile_info {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;    
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;    
 }
 
 .profile_info div {
@@ -57,7 +71,8 @@ header {
   background-color: white;
   min-width: 300px;
   padding: 10px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  -webkit-box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+          box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 2;
 }
 
@@ -79,21 +94,30 @@ header {
 
 
 .brand_logo {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 
 .main-header__item a {
   text-decoration: none;
   color: grey;
+  font-size: 18px;
+
 }
 
-.main-header__item a:hover,
-.main-header__item a:active,
-.main-header__item a.active {
-  color: black;
+.main-header__item a:hover, .main-header__item a.active  {
+  color: #956c4d;
 }
 
 .wrapper {
@@ -101,16 +125,27 @@ header {
 }
 
 main {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
 }
 
 .sidebar {
     width: 1000px;
     height: 88vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     position: relative;
 }
 
@@ -160,7 +195,8 @@ main {
     font-size: 15px;
     font-weight: bold;
     border-radius: 30px;
-    box-shadow: -0px 5px 20px #956c4d;
+    -webkit-box-shadow: -0px 5px 20px #956c4d;
+            box-shadow: -0px 5px 20px #956c4d;
     outline: none;
     border: none;
     padding: 5px;
@@ -175,16 +211,24 @@ main {
 .content_div {
     height: 100%;
     margin-top: 50px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     border-top-left-radius: 30px;
 }
 
 .content_heading {
-    display: flex;
-    align-items: center;
-    margin: 0px 50px;
-    padding: 15px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: block;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin: 40px 20px 0px 20px;
     border-radius: 30px; 
     color: grey;
     font-size: 20px;
@@ -192,13 +236,13 @@ main {
 }
 
 
-
-
-
 /* card items  */
 .card_div {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
     margin: 10px 30px 30px 30px;
     border-left: 1px #c5bebe solid;
 }
@@ -211,20 +255,35 @@ main {
     background-color: #ffffff;
     margin: 20px;
     padding: 20px;
-    box-shadow: 5px 5px 25px lightgrey;
+    -webkit-box-shadow: 5px 5px 25px lightgrey;
+            box-shadow: 5px 5px 25px lightgrey;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
 }
 
 .card_conditions {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     width: 100%;
-    justify-content: space-between;
-    flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
     margin-top: 17px;
 }
 
 .card_optional {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     margin-top: 15px;
 }
@@ -237,8 +296,13 @@ main {
 }
 
 .card_optional2 {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     margin-top: 15px;
 }
 
@@ -261,4 +325,30 @@ main {
 .checklabel {
     font-size: 14px;
     color: grey;
+}
+
+.jobsearchlink {
+    text-decoration: none;
+    border: 2px solid #673AB7;
+    color: grey;
+    padding: 10px;
+    font-size: 17px;
+    border-radius: 20px;
+    margin-left: 20px;
+    height: 100px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 230px;
+}
+
+.fa-female, .fa-lightbulb {
+    color: #232323;
+    font-size: 30px;
 }

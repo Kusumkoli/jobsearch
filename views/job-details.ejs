@@ -1,10 +1,22 @@
 <%- include("./includes/template-start.ejs") %>
 	<div class="job_main">
 		<div class="job_heading">
-			<div><%= job.job_title %></div>
-			<div>At <%= job.company_name %></div>
+			<% if (pageTitle == 'Job Details') { %>
+				<div><%= job.job_title %></div>
+	        <% } else { %>
+	            <div><%= program.program_title %></div>
+	        <% } %>
+			<% if (pageTitle == 'Job Details') { %>
+				<div>At <%= job.company_name %></div>
+	        <% } else { %>
+	            <div>By <%= program.company_name %></div>
+	        <% } %>
 			<div>
-				<input class="submit-button" type="submit" value="APPLY FOR THIS JOB">
+				<% if (pageTitle == 'Job Details') { %>
+					<input class="submit-button" type="submit" value="APPLY FOR THIS JOB">
+		        <% } else { %>
+		            <input class="submit-button" type="submit" value="REGISTER">
+		        <% } %>
 			</div>
 		</div>
 		<div class="job_content">
@@ -12,24 +24,40 @@
 				<div>
 					<h3 class="blackcolor"> ABOUT THIS ROLE </h3>
 					<br>
-					<p><%= job.job_desc %></p>
+					<p>
+						<% if (pageTitle == 'Job Details') { %>
+							<%= job.job_desc %>
+				        <% } else { %>
+				        	<%= program.about %>
+				        <% } %>
+					</p>
 					<br>
-					<p><%= job.eligibility %></p>
+					<p>
+						<% if (pageTitle == 'Job Details') { %>
+							<%= job.eligibility %>
+				        <% } else { %>
+				        	<%= program.eligibility %>
+				        <% } %>
+				    </p>
 					<br>
 				</div>
-				<div>
-					<h3 class="blackcolor"> SKILLS </h3>
-					<br>
-					<% for(let skill of job.skills_needed) { %>
-						<div class="skill"><%= skill %></div>
+				<% if (pageTitle == 'Job Details') { %>
+					<div>
+						<h3 class="blackcolor"> SKILLS </h3>
+						<br>
+						<% for(let skill of job.skills_needed) { %>
+							<div class="skill"><%= skill %></div>
+						<% } %>
+					</div>		
+				<% } %> 
+			</div>
+			<% if (pageTitle == 'Job Details') { %>
+				<div class="job_div2">
+					<% for(let perk of job.perks) { %>
+						<div class="perks"><%= perk %></div>
 					<% } %>
-				</div>
-			</div>
-			<div class="job_div2">
-				<% for(let perk of job.perks) { %>
-					<div class="perks"><%= perk %></div>
-				<% } %>
-			</div>
+				</div>	
+			<% } %> 
 		</div>
 	</div>
 

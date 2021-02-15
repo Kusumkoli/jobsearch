@@ -1,0 +1,61 @@
+<%- include("./includes/template-start.ejs") %>
+	<div class="programs_wrapper"> 
+		<div class="tab">
+		  <button class="tablinks" onclick="openCity(event, 'London')">Her Second Innings</button>
+		  <button class="tablinks" onclick="openCity(event, 'Paris')">Post Quarantine</button>
+		</div>
+
+		<div id="London" class="tabcontent">
+		    <h3 style="color:black">Programs for Her</h3>
+		    <p>Programs to help women trying to re/start a career.</p>
+		    <div class="program_box">
+                <% if(programs_women.length>0) { %>
+                    <% for(let program1 of programs_corona) { %>
+                        <div class="program_each">
+                        	<div class="heading1"><%= program1.program_title %></div>
+                        	<div class="heading2"><%= program1.company_name %></div>
+                        	<a href="/programs/<%= program1._id %>" class="details">View Details </a>
+                        </div>    
+                    <% } %>
+                <% } else { %>
+                    <h3>No Programs</h3>
+                <% } %>
+            </div>
+		</div>
+
+		<div id="Paris" class="tabcontent">
+		    <h3 style="color:black">Programs Post Covid</h3>
+		    <p>Programs to help people who lost their jobs during COVID-19</p> 
+		    <div class="program_box">
+                <% if(programs_corona.length>0) { %>
+                    <% for(let program of programs_women) { %>
+                        <div class="program_each">
+                        	<div class="heading1"><%= program.program_title %></div>
+                        	<div><%= program.company_name %></div>
+                        	<a href="/programs/<%= program._id %>" class="details">View Details </a>
+                        </div>    
+                    <% } %>
+                <% } else { %>
+                    <h3>No Programs</h3>
+                <% } %>
+            </div>
+		</div>
+	</div>
+</body>
+
+<script>
+function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
+</html>
