@@ -36,8 +36,10 @@
             </div>
             <div class="content_div"> 
                 <div class="card_div">
-                <a href="/womenjobs" class="jobsearchlink"><i class="fas fa-female"></i>Jobs for Women</a>
-                <a href="/coronajobs" class="jobsearchlink"><i class="fas fa-lightbulb"></i> Jobs for people who lost job due to Covid</a>
+                <% if (pageTitle !== 'Your Job Postings') { %>
+                    <a href="/womenjobs" class="jobsearchlink"><i class="fas fa-female"></i>Jobs for Women</a>
+                    <a href="/coronajobs" class="jobsearchlink"><i class="fas fa-lightbulb"></i> Jobs for people who lost job due to Covid</a>
+                <% } %>
                 <div class="content_heading"><%= jobs.length %> Job/s Found</div>
                     <% if(jobs.length>0) { %>
                         <% for(let job of jobs) { %>
