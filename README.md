@@ -4,7 +4,7 @@ Job Search Web Application using Node.js, Express.js, MongoDB and Ejs Templating
 
 Deployed on https://jobsearch-wit.herokuapp.com/
 
-Demo Video: https://drive.google.com/file/d/1xgHeKOQN946Awb5_6QHHNu5EpyisyNbj/view
+Demo Video: https://drive.google.com/file/d/1NxvLTbYT00HdyLCwYKD49eX5osmQXXbQ/view?usp=sharing
 
 ![Login Page](../master/projectscreenshots/screencapture1.png)
 
