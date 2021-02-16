@@ -32,9 +32,7 @@ exports.postJobSearch = (req, res, next) => {
                 ]
             },
             { "min_salary" : {$lte : req.body.expected_salary }},
-            { "max_salary" : {$gte : req.body.expected_salary }},
-            { "start_date" : {$gte :{"$dateFromString" : req.body.startdate }}}
-            
+            { "max_salary" : {$gte : req.body.expected_salary }}
         ]})
         .then(jobs => {
             res.render('dashboard', {pageTitle:'Job Openings', jobs: jobs, user: req.cookies.userdetails});
